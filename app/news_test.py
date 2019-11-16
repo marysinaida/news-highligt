@@ -20,6 +20,13 @@ class TestNews(unittest.TestCase):
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_news,News))
+        
+class TestArticles(unittest.TestCase):
+    '''
+    Test Class to test the behaviour of our Article class
+    '''
+
+    
      
 
 
