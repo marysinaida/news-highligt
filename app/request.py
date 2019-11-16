@@ -47,6 +47,15 @@ def process_results(news_list):
             news_list.append(news_obj)
     return news_results        
 #get article
+def get_articles(id):
+    get_articles_url = article_base.format(id,api_key)
 
+    get_articles_response = request.get(get_articles_url).json()
+    if get_articles_response['articles']:
+        articles_results_list = get_articles_response['articles']
+        articles_results = process_article(articles_results_list)
+
+        return articles_results
+     
 
 
