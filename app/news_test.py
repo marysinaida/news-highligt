@@ -10,3 +10,6 @@ class TestNews(unittest.TestCase):
         '''
         Set up method that will run before ever Test
         '''
+        self.new_news = News("abc-news","ABC News","Your trusted source for breaking news,analysis,exclusive interviews,headlines,and videos at ABCNews.com","https://abcnews.go.com","general","en","us")
+
+    def setUp(self):
