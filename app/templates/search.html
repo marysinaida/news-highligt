@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% import 'macros.html' as macro %}
-{% block content %}
-<section class="bg-success">
-    <div class="container">
-        <div class="row">
 
-            <h3> Found {{news|count}} matches </h3>
+{% block content %}
+<section class="bg-primary">
+    <div class="container">
+
+        <div class="row">
+            <h3> Found {{ news|count}} matches</h3>
             <hr>
             <ul>
                 {{ macro.Article(news)}}

@@ -1,21 +1,30 @@
 {% extends 'base.html' %}
-{% import 'macros.html' as macros %}
+{% import 'macros.html' as macro %}
 
 <!--styles block-->
-
 {% block styles %}
-{{ super() }}
-<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-{% endblock %}
-<!-- Content block -->
-{% block content %}
-<section class="bg-success">
+  {{ super() }}
+  <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock styles%}
 
+<!--nav block-->
+{% block navbar %}
+<div class="container-fluid">
+    <nav class="navbar">
+        <h1>Welcome to News Highlights</h1>
+        <p> Amazing applicatin that will be your assistant in <br> viewing various news and articles from diffrent sites and sources</p>
+    </nav>
+</div>
+{% endblock navbar %}
+<!--content block-->
+{% block content %}
+<section class="bg-info mb-3">
     <div class="container" id="content">
+
         <div class="row">
-            {{macro.displayNewsList(news_source)}}
+            {{macro.displayNewsList(new_source)}}
         </div>
     </div>
 </section>
 
-{% endblock %}
+{% endbloc content %}
