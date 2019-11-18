@@ -33,7 +33,7 @@ class TestArticles(unittest.TestCase):
         
     def test_instance(self):
         self.assertTrue(isinstance(self.new_article,Articles))
-if if __name__ == "__main__":
+if __name__ == "__main__":
     unittest.main()
 
 
