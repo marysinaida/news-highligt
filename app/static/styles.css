@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css?family=Calistoga&display=swap");
+
+body{
+    background-color: blanchedalmond;
+    font-family: 'Calistoga', cursive;
+    font-size: 30px;
+}
+
+.navbar{
+    text-align: center;
+    background-color: aqua;
+    padding-bottom:40px;
+}

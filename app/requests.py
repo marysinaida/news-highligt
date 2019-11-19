@@ -17,9 +17,13 @@ def get_sources():
     '''
     Function that gets the json response to our url request
     '''
-    get_news_url = base_url 
+    get_news_url = base_url.format("f4b3c861a0db4b5b81c12a1477f9a7e7") 
+    print(get_news_url)
 
-    get_news_response = requests.get(get_news_url).json()
+    get_news_response = requests.get(get_news_url)
+    news = get_news_response.json()
+    get_news_response = news.get('sources')
+    return get_news_response
 
     if get_news_response['sources']:
         news_results_list = get_news_response['sources']
@@ -44,39 +48,12 @@ def process_results(news_results_list):
             news_results.append(news_obj)
     return news_results
 
-#get articles
+
 def get_articles(id):
-    get_articles_url = article_base_url.format(id,api_key)
+    get_articles_url = article_base_url.format(id, "f4b3c861a0db4b5b81c12a1477f9a7e7")
+    res = requests.get(get_articles_url)
+    get_articles_response = res.json()
+    article_list = get_articles_response.get('articles')
+    return article_list
 
-    get_articles_response = requests.get(get_articles_url).json()
-    if get_articles_response['articles']:
-        articles_results_list = get_articles_response['articles']
-        articles_results = process_results(articles_results_list)
 
-        return articles_results
-
-def process_article(article_list):
-    articles_results = []
-    for article in article_list:
-        id = article.get('id')
-        author = article.get('author')
-        title = article.get('title')
-        description = article.get('description')
-        url = article.get('url')
-        urlToImage = article.get('urlToImage')
-        publishedAt = article.get('publishedAt')
-        content = article.get('content')
-        if urlToImage:
-            article_result = Articles(id, author,title, description,url,urlToImage,publishedAt,conten)
-            articles_results.append(article_result)
-    return articles_results
-
-def search_news(name):
-    search_news_url = 'https://newsapi.org/v2/everything?q={}&apiKey={}'.format(name,api_key)
-    search_news_response = requests.get(search_news_url).json()
-
-    if search_news_response['articles']:
-        search_news_list = search_news_response['articles']
-        search_news_results = process_article(search_news_list)
-
-    return search_news_results
